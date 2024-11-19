@@ -10,8 +10,8 @@ char swcase(char c){
     return c+C;
 }
 
-void expand(char* s){
-    realloc(s,strlen(s)*sizeof(char)*2);
+char* expand(char* s){
+    return realloc(s,strlen(s)*sizeof(char)*2);
 }
 
 char* scanline(char* s){
@@ -23,7 +23,7 @@ char* scanline(char* s){
         ln++;
         if(ln>=lim){
             s[ln-1] = '\0';
-            expand(s);
+            s = expand(s);
             lim*=2;
         }
         c = getchar();
